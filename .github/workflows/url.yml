@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-            token: ${{ secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.PAT_GITHUB }}
             ref: master
 
       - name: Set up Python
@@ -25,9 +25,9 @@ jobs:
 
       - name: Clone private repo and run code
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
         run: |
-          git clone https://x-access-token:${GITHUB_TOKEN}@github.com/iamCristYE/url-private.git
+          git clone https://x-access-token:${PAT_GITHUB}@github.com/iamCristYE/url-private.git
           cd url-private
           python url.py
 
