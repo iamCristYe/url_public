@@ -8,11 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-            ref: main
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -21,6 +16,11 @@ jobs:
       - name: Run apt and pip
         run: |
           pip install requests
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+            ref: main
 
       - name: Clone private repo and run code
         env:
