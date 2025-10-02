@@ -27,7 +27,7 @@ jobs:
         env:
           PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
         run: |
-          git clone https://x-access-token:${PAT_GITHUB}@github.com/iamCristYE/url-private.git
-          cd url-private
+          git clone https://x-access-token:${PAT_GITHUB}@github.com/iamCristYE/url_private.git
+          cd url_private
           python url.py
 
