@@ -20,7 +20,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-            token: ${{ secrets.PAT_GITHUB }}
             ref: master
 
       - name: Clone private repo and run code
