@@ -1,0 +1,34 @@
+name: url-n
+
+on:
+  schedule:
+    - cron: '30 */12 * * *'
+  workflow_dispatch:
+
+jobs:
+  url-n:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8' # Specify the Python version you need
+    
+      - name: Run apt and pip
+        run: |
+          pip install requests
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+            ref: main
+
+      - name: Clone private repo and run code
+        env:
+          PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
+        run: |
+          git clone https://x-access-token:${PAT_GITHUB}@github.com/iamCristYE/url_private.git
+          cd url_private
+          python url-n.py
+
