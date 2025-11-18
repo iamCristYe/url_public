@@ -1,6 +1,8 @@
 name: url
 
 on:
+  schedule:
+    - cron: '30 */12 * * *'
   workflow_dispatch:
 
 jobs:
@@ -26,7 +28,7 @@ jobs:
         env:
           PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
         run: |
-          git clone https://x-access-token:${PAT_GITHUB}@github.com/iamCristYE/url_private.git
-          cd url_private
+          git clone https://x-access-token:${PAT_GITHUB}@github.com/iamCristYE/url-checking.git
+          cd url-checking
           python url.py
 
